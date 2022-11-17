@@ -1,7 +1,7 @@
 FROM python:2.7-wheezy
 
 # Install locust
-RUN python -m ensurepip --upgrade && pip install locustio
+RUN pip install --upgrade pip && pip install locustio
 
 ADD build/locustfile.py /config/locustfile.py
 ADD build/runLocust.sh /usr/local/bin/runLocust.sh
