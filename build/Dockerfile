@@ -1,10 +1,13 @@
-FROM public.ecr.aws/lambda/nodejs:14
+FROM python:2.7-wheezy
 
-# Install NPM dependencies for function
-RUN npm install
+# Install locust
+RUN pip install pyzmq locustio faker
 
-# # Assumes your function is named "app.js", and there is a package.json file in the app directory 
-# COPY app.js package.json  /var/task
+ADD locustfile.py /config/locustfile.py
+ADD runLocust.sh /usr/local/bin/runLocust.sh
 
-# Set the CMD to your handler (could also be done as a parameter override outside of the Dockerfile)
-CMD [ "app.handler" ]  
+ENV LOCUST_FILE /config/locustfile.py
+
+EXPOSE 8089
+
+ENTRYPOINT ["/usr/local/bin/runLocust.sh"]
