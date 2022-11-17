@@ -4,7 +4,7 @@ FROM public.ecr.aws/lambda/nodejs:14
 RUN npm install
 
 # Assumes your function is named "app.js", and there is a package.json file in the app directory 
-COPY app.js package.json  ${LAMBDA_TASK_ROOT}
+COPY app.js package.json  /var/task
 
 # Set the CMD to your handler (could also be done as a parameter override outside of the Dockerfile)
 CMD [ "app.handler" ]  
