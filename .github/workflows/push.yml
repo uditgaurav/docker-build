@@ -39,4 +39,4 @@ jobs:
           push: true
           file: build/Dockerfile
           platforms: linux/amd64
-          tags: uditgaurav/hello:1.0
+          tags: uditgaurav/load-gen:latest
