@@ -1,0 +1,33 @@
+apiVersion: batch/v1
+kind: Job
+metadata:
+  generateName: load-gen-
+  labels:
+    app: loadtest
+    name: load-test
+spec:
+  template:
+    spec:
+      containers:
+      - name: load-test
+        image: uditgaurav/load-gen
+        command: ["/bin/sh"]
+        args: ["-c", "sleep 1; locust --host https://fwszb6tuy0.execute-api.us-east-2.amazonaws.com/default/microservice-read-write-dynamo?TableName=hce-test-db -f config/locustfile.py --users 1000 --spawn-rate 1000 --headless; sleep 1000000"]
+      restartPolicy: Never
+---
+apiVersion: batch/v1
+kind: Job
+metadata:
+  generateName: load-gen-
+  labels:
+    app: loadtest
+    name: load-test
+spec:
+  template:
+    spec:
+      containers:
+      - name: load-test
+        image: uditgaurav/load-gen
+        command: ["/bin/sh"]
+        args: ["-c", "sleep 1; locust --host https://fwszb6tuy0.execute-api.us-east-2.amazonaws.com/default/microservice-read-write-dynamo?TableName=hce-test-db -f config/locustfile.py --users 1000 --spawn-rate 1000 --headless; sleep 1000000"]
+      restartPolicy: Never
