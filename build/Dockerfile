@@ -1,7 +1,6 @@
-FROM python:2.7-wheezy
+FROM python:3.6
 
-# Install locust
-RUN pip install --upgrade pip && pip install locustio
+RUN python3 -m pip install -U pip && python3 -m pip install -U setuptools &&  pip3 install locust
 
 ADD build/locustfile.py /config/locustfile.py
 ADD build/runLocust.sh /usr/local/bin/runLocust.sh
