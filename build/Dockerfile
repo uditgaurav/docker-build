@@ -7,6 +7,6 @@ ADD build/runLocust.sh /usr/local/bin/runLocust.sh
 
 ENV LOCUST_FILE /config/locustfile.py
 
-EXPOSE 8089
+EXPOSE 8089 5557 5558
 
 #ENTRYPOINT ["/usr/local/bin/runLocust.sh"]
