@@ -9,4 +9,4 @@ ENV LOCUST_FILE /config/locustfile.py
 
 EXPOSE 8089
 
-ENTRYPOINT ["/usr/local/bin/runLocust.sh"]
+#ENTRYPOINT ["/usr/local/bin/runLocust.sh"]
