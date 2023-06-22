@@ -39,4 +39,4 @@ jobs:
           push: true
           file: build/Dockerfile
           platforms: linux/amd64
-          tags: uditgaurav/jenkins:latest
+          tags: uditgaurav/test-image:latest
